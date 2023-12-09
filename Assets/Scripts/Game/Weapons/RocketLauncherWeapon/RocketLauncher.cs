@@ -6,7 +6,7 @@ namespace Weapons.RocketLauncherWeapon
 {
     public class RocketLauncher : MonoBehaviour, IWeapon
     {
-        public void Shoot()
+        public void Shoot(ShotData data)
         {
             throw new System.NotImplementedException();
         }

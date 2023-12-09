@@ -1,19 +1,10 @@
 using UnityEngine;
+using Weapons.Core.Interfaces;
 
 namespace Weapons.Core
 {
-    public class Weapon : MonoBehaviour
+    public abstract class Weapon : MonoBehaviour, IWeapon
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        public abstract void Shoot(ShotData data);
     }
 }

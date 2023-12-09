@@ -1,19 +1,10 @@
 using UnityEngine;
+using Weapons.Core.Interfaces;
 
 namespace Weapons.Core
 {
-    public class WeaponInput : MonoBehaviour
+    public abstract class WeaponInput : MonoBehaviour, IWeaponInput
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        [SerializeField] protected Weapon weapon;
     }
 }
