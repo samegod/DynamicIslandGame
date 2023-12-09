@@ -1,14 +1,19 @@
 using UnityEngine;
 using Weapons.Core;
-using Weapons.Core.Interfaces;
 
 namespace Weapons.RocketLauncherWeapon
 {
-    public class RocketLauncher : MonoBehaviour, IWeapon
+    public class RocketLauncher : Weapon
     {
-        public void Shoot(ShotData data)
+        [SerializeField] private RocketProjectile projectilePrefab;
+        
+        public override void Shoot(ShotData data)
         {
-            throw new System.NotImplementedException();
+            RocketProjectile projectile = ProjectilesPool.Instance.Pop(projectilePrefab) as RocketProjectile;
+            if (!projectile) return;
+            
+            projectile.transform.position = transform.position;
+            projectile.Shoot(data.ShootPosition);
         }
     }
 }
