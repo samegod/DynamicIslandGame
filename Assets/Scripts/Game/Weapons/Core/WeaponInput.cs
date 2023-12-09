@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Weapons.Core.Interfaces;
 
@@ -5,6 +6,10 @@ namespace Weapons.Core
 {
     public abstract class WeaponInput : MonoBehaviour, IWeaponInput
     {
+        public event Action<ShotData> OnMouseDown;
+        public event Action<ShotData> OnMouseHold;
+        public event Action<ShotData> OnMouseUp;
+        
         [SerializeField] protected Weapon weapon;
 
         private Camera _mainCamera;
@@ -18,26 +23,45 @@ namespace Weapons.Core
         {
             if (Input.GetMouseButtonDown(0))
             {
-                MouseDown(GetMousePosition());
+                MouseDown();
             }
 
             if (Input.GetMouseButton(0))
             {
-                MouseHold(GetMousePosition());
+                MouseHold();
             }
 
             if (Input.GetMouseButtonUp(0))
             {
-                MouseUp(GetMousePosition());
+                MouseUp();
             }
         }
 
-        protected virtual void MouseDown(Vector2 position) { }
+        private void MouseDown()
+        {
+            ShotData shotData = CreateShotData(GetMousePosition());
+            OnMouseDown?.Invoke(shotData);
+        }
 
-        protected virtual void MouseHold(Vector2 position) { }
+        private void MouseHold()
+        {
+            ShotData shotData = CreateShotData(GetMousePosition());
+            OnMouseHold?.Invoke(shotData);
+        }
 
-        protected virtual void MouseUp(Vector2 position) { }
+        private void MouseUp()
+        {
+            ShotData shotData = CreateShotData(GetMousePosition());
+            OnMouseUp?.Invoke(shotData);
+        }
 
+        private ShotData CreateShotData(Vector2 mousePosition)
+        {
+            ShotData shotData = new ShotData();
+            shotData.ShootPosition = mousePosition;
+            return shotData;
+        }
+        
         private Vector2 GetMousePosition()
         {
             var mouseWorldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);

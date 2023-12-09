@@ -1,12 +1,32 @@
+using System;
 using UnityEngine;
 using Weapons.Core;
+using Weapons.RocketLauncherWeapon.Aim;
 
 namespace Weapons.RocketLauncherWeapon
 {
     public class RocketLauncher : Weapon
     {
         [SerializeField] private RocketProjectile projectilePrefab;
-        
+        [SerializeField] private RocketAim aimPrefab;
+
+        private RocketLauncherAimController _aimController;
+
+        private void Awake()
+        {
+            _aimController = new RocketLauncherAimController(this, aimPrefab);
+        }
+
+        private void OnEnable()
+        {
+            weaponInput.OnMouseUp += Shoot;
+        }
+
+        private void OnDisable()
+        {
+            weaponInput.OnMouseUp -= Shoot;
+        }
+
         public override void Shoot(ShotData data)
         {
             RocketProjectile projectile = ProjectilesPool.Instance.Pop(projectilePrefab) as RocketProjectile;
@@ -14,6 +34,8 @@ namespace Weapons.RocketLauncherWeapon
             
             projectile.transform.position = transform.position;
             projectile.Shoot(data.ShootPosition);
+            
+            ShootAction(projectile);
         }
     }
 }
