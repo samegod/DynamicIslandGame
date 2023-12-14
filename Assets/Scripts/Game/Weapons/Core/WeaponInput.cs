@@ -9,8 +9,6 @@ namespace Weapons.Core
         public event Action<ShotData> OnMouseDown;
         public event Action<ShotData> OnMouseHold;
         public event Action<ShotData> OnMouseUp;
-        
-        [SerializeField] protected Weapon weapon;
 
         private Camera _mainCamera;
 
@@ -55,18 +53,31 @@ namespace Weapons.Core
             OnMouseUp?.Invoke(shotData);
         }
 
-        private ShotData CreateShotData(Vector2 mousePosition)
+        private ShotData CreateShotData(Vector3 mousePosition)
         {
             ShotData shotData = new ShotData();
+
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = _mainCamera.nearClipPlane + 1;
+            var mouseWorldPos = _mainCamera.ScreenToWorldPoint(mousePos);
+            shotData.ShootPosition2D = mouseWorldPos;
             shotData.ShootPosition = mousePosition;
+            
             return shotData;
         }
-        
-        private Vector2 GetMousePosition()
+
+        private Vector3 GetMousePosition()
         {
-            var mouseWorldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0f;
-            return mouseWorldPos;
+            Vector3 clickPosition = Vector3.zero;
+            RaycastHit hit;
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, 500, LayerMask.GetMask("InputLayer")))
+            {
+                clickPosition = hit.point;
+            }
+
+            return clickPosition;
         }
     }
 }
