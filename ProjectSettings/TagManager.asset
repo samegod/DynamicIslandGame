@@ -50,6 +50,6 @@ TagManager:
   - name: Front
     uniqueID: 4254635361
     locked: 0
-  - name: Ui
+  - name: UI
     uniqueID: 484343795
     locked: 0
