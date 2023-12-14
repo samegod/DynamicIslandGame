@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Weapons.Core;
 using Weapons.RocketLauncherWeapon.Aim;
@@ -7,6 +6,7 @@ namespace Weapons.RocketLauncherWeapon
 {
     public class RocketLauncher : Weapon
     {
+        [SerializeField] private Transform inputPlane;
         [SerializeField] private RocketProjectile projectilePrefab;
         [SerializeField] private RocketAim aimPrefab;
 
@@ -14,7 +14,7 @@ namespace Weapons.RocketLauncherWeapon
 
         private void Awake()
         {
-            _aimController = new RocketLauncherAimController(this, aimPrefab);
+            _aimController = new RocketLauncherAimController(this, aimPrefab, inputPlane);
         }
 
         private void OnEnable()
