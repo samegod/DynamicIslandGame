@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Pool
+namespace Additions.Pool
 {
 	[RequireComponent(typeof(MonoBehaviourPoolObject))]
-	public class PushOverLifetimeComponent : MonoBehaviour
+	public class PushOverLifetimeComponent: MonoBehaviour
 	{
 		[SerializeField, HideInInspector] MonoBehaviourPoolObject obj;
 		[SerializeField] private float lifeTime;
@@ -12,9 +12,13 @@ namespace Pool
 		private void OnEnable()
 		{
 			if (obj != null)
+			{
 				StartCoroutine(PushOverLifetime(obj));
+			}
 			else
+			{
 				Debug.LogError("PushOverLifetimeComponent attached to non-MonoBehaviourPoolObject GameObject");
+			}
 		}
 
 		private IEnumerator PushOverLifetime(MonoBehaviourPoolObject poolObject)
