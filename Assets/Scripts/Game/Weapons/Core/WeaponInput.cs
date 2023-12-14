@@ -58,7 +58,7 @@ namespace Weapons.Core
             ShotData shotData = new ShotData();
 
             Vector3 mousePos = Input.mousePosition;
-            mousePos.z = _mainCamera.nearClipPlane + 1;
+            mousePos.z = _mainCamera.nearClipPlane + 20;
             var mouseWorldPos = _mainCamera.ScreenToWorldPoint(mousePos);
             shotData.ShootPosition2D = mouseWorldPos;
             shotData.ShootPosition = mousePosition;
