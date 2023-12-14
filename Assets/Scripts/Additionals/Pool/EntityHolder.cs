@@ -36,6 +36,7 @@ namespace Additions.Pool
 
 		protected virtual void PopInternal(T entity)
 		{
+			
 		}
 	}
 }
