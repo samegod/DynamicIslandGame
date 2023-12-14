@@ -11,19 +11,17 @@ namespace Weapons.RocketLauncherWeapon
         [SerializeField] private Particles explosionParticles;
 
         private bool _isFlying;
-        private Vector2 _targetPosition;
+        private Vector3 _targetPosition;
         
         private void Update()
         {
             if (_isFlying)
             {
-                Vector2 direction = _targetPosition - (Vector2)transform.position;
-                float newRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, 0f, newRotation - 90);
+                transform.LookAt(_targetPosition);
             }
         }
 
-        public void Shoot(Vector2 finalPosition)
+        public void Shoot(Vector3 finalPosition)
         {
             transform.DOMove(finalPosition, speed).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(Explode);
             _targetPosition = finalPosition;

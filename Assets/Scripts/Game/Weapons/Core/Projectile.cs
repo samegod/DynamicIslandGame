@@ -1,5 +1,5 @@
 using System;
-using Pool;
+using Additions.Pool;
 using Weapons.Core.Interfaces;
 
 namespace Weapons.Core
