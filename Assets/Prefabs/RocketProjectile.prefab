@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preloadCount: 10
+  damage: 5
+  range: 3
   speed: 15
   explosionParticles: {fileID: 5834448703936623710, guid: 7cf5f2799fcec89468a5e06f8dd65aec, type: 3}
 --- !u!1 &7928382549975742148
