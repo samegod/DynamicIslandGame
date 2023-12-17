@@ -26,8 +26,11 @@ namespace Entities
 
         public void Stop()
         {
-            navMeshAgent.ResetPath();
-            _rigidbody.velocity = Vector3.zero;
+            if (navMeshAgent.isOnNavMesh && !navMeshAgent.isStopped)
+            {
+                navMeshAgent.ResetPath();
+                _rigidbody.velocity = Vector3.zero;
+            }
         }
     }
 }

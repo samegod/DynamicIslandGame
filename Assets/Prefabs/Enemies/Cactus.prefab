@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7129706258064275937}
   - component: {fileID: 1012895349349407474}
   - component: {fileID: 3477955732718147648}
+  - component: {fileID: 6004798880672317238}
   - component: {fileID: 7129706258064275950}
   - component: {fileID: 7129706258064275951}
   - component: {fileID: 7129706258064275936}
@@ -53,8 +54,8 @@ MonoBehaviour:
   preloadCount: 10
   entityMotion: {fileID: 7129706258064275937}
   health: {fileID: 1012895349349407474}
-  targetPosition: {fileID: 0}
   animator: {fileID: 3477955732718147648}
+  stateMachine: {fileID: 6004798880672317238}
 --- !u!114 &7129706258064275937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +96,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8186712697921349219}
+--- !u!114 &6004798880672317238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129706258064275941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951bca2498462674eb99588cb250516c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &7129706258064275950
 Rigidbody:
   m_ObjectHideFlags: 0

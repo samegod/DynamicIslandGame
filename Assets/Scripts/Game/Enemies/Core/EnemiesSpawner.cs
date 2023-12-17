@@ -29,7 +29,7 @@ namespace Enemies.Core
             if (newEnemy == null) return;
             
             newEnemy.transform.position = spawnPosition.position;
-            newEnemy.Init(player);
+            newEnemy.Attack(player);
         }
     }
 }

@@ -21,7 +21,6 @@ namespace Enemies.Core
         public void ReduceHealth(float healthToChange)
         {
             _currentHealth -= healthToChange;
-            Debug.Log("Enemy " + gameObject.name + " took " + healthToChange + " damage!");
             
             if (_currentHealth <= 0)
             {
@@ -34,7 +33,6 @@ namespace Enemies.Core
         
         public void Die()
         {
-            Debug.Log("Enemy " + gameObject.name + " died!");
             OnDeath?.Invoke();
         }
     }

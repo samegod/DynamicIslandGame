@@ -11,6 +11,9 @@ namespace Entities
         [SerializeField, HideInInspector] protected EntityMotion entityMotion;
         [SerializeField, HideInInspector] protected EnemyHealth health;
 
+        public EntityMotion EntityMotion => entityMotion;
+        public EnemyHealth Health => health;
+
         private void OnValidate()
         {
             entityMotion = GetComponent<EntityMotion>();
@@ -19,19 +22,20 @@ namespace Entities
 
         protected virtual void OnEnable()
         {
-            health.OnDeath += Die;
+            Health.OnDeath += Die;
         }
 
         protected virtual void OnDisable()
         {
-            health.OnDeath -= Die;
+            Health.OnDeath -= Die;
         }
 
-        protected virtual void MoveTo(Vector3 position) => entityMotion.MoveTo(position);
+        public virtual void MoveTo(Vector3 position) => EntityMotion.MoveTo(position);
 
         protected virtual void Reload()
         {
-            health.Reload();
+            EntityMotion.Stop();
+            Health.Reload();
         }
         
         public abstract void TakeDamage(float damage);
