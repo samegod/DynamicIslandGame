@@ -5,19 +5,19 @@ using UnityEngine;
 
 namespace Entities
 {
-    [RequireComponent(typeof(EntityMotion), typeof(EnemyHealth))]
+    [RequireComponent(typeof(EntityMotion), typeof(EntityHealth))]
     public abstract class Entity : MonoBehaviourPoolObject
     {
         [SerializeField, HideInInspector] protected EntityMotion entityMotion;
-        [SerializeField, HideInInspector] protected EnemyHealth health;
+        [SerializeField, HideInInspector] protected EntityHealth health;
 
         public EntityMotion EntityMotion => entityMotion;
-        public EnemyHealth Health => health;
+        public EntityHealth Health => health;
 
         private void OnValidate()
         {
             entityMotion = GetComponent<EntityMotion>();
-            health = GetComponent<EnemyHealth>();
+            health = GetComponent<EntityHealth>();
         }
 
         protected virtual void OnEnable()

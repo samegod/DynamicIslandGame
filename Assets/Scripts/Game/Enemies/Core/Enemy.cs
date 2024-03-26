@@ -1,4 +1,3 @@
-using System;
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
 using Entities;
@@ -10,6 +9,7 @@ namespace Enemies.Core
     public abstract class Enemy : Entity
     {
         [SerializeField] protected float deathTime = 1f;
+        [SerializeField] protected EnemyStats stats;
         [SerializeField, HideInInspector] protected EnemyAnimator animator;
         [SerializeField, HideInInspector] protected EnemyStateMachine stateMachine;
 

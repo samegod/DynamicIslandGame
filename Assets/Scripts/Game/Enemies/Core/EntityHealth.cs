@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemies.Core
 {
-    public class EnemyHealth : MonoBehaviour
+    public class EntityHealth : MonoBehaviour
     {
         public event Action OnDeath;
 
