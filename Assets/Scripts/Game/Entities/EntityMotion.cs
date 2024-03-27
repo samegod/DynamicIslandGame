@@ -19,6 +19,11 @@ namespace Entities
             navMeshAgent.speed = speed;
         }
 
+        public void SetSpeed(float newSpeed)
+        {
+            speed = newSpeed;
+        }
+
         public void MoveTo(Vector3 targetPosition)
         {
             navMeshAgent.SetDestination(targetPosition);

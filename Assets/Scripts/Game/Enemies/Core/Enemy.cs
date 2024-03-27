@@ -1,3 +1,4 @@
+using System;
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
 using Entities;
@@ -26,6 +27,11 @@ namespace Enemies.Core
             stateMachine.UpdateEnemy(this);
         }
 
+        private void Start()
+        {
+            InitStats();
+        }
+
         private void Update()
         {
             Animator.SetMotionSpeed(EntityMotion.CurrentSpeed);
@@ -51,6 +57,15 @@ namespace Enemies.Core
         {
             stateMachine.StopStates();
             Push();
+        }
+
+        private void InitStats()
+        {
+            if (!stats)
+                return;
+            
+            Health.SetMaxHealth(stats.Health);
+            EntityMotion.SetSpeed(stats.Speed);
         }
     }
 }

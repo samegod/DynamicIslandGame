@@ -17,6 +17,11 @@ namespace Enemies.Core
         {
             _currentHealth = maxHealth;
         }
+
+        public void SetMaxHealth(float newMaxHealth)
+        {
+            maxHealth = newMaxHealth;
+        }
         
         public void ReduceHealth(float healthToChange)
         {
