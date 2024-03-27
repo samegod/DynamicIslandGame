@@ -7,9 +7,9 @@ namespace Weapons.Core
 {
     public abstract class Projectile : MonoBehaviourPoolObject, IProjectile
     {
-        [SerializeField] protected float damage;
-        
         public event Action OnComplete;
+        
+        [SerializeField] protected float damage;
 
         protected void Complete()
         {

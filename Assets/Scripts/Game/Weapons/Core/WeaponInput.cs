@@ -4,7 +4,7 @@ using Weapons.Core.Interfaces;
 
 namespace Weapons.Core
 {
-    public abstract class WeaponInput : MonoBehaviour, IWeaponInput
+    public class WeaponInput : MonoBehaviour, IWeaponInput
     {
         public event Action<ShotData> OnMouseDown;
         public event Action<ShotData> OnMouseHold;
