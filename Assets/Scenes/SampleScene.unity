@@ -476,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267824301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 438272561}
@@ -5405,7 +5405,9 @@ MonoBehaviour:
   weaponInput: {fileID: 438272562}
   bulletPrefab: {fileID: -5024839024487412968, guid: fd405d76b55af784a894270a754c0b61, type: 3}
   shootPoint: {fileID: 853426462}
-  rotationSpeed: 5
+  shootParticles: {fileID: 267824304}
+  shotCooldown: 0.05
+  rotationSpeed: 10
 --- !u!1 &491236386
 GameObject:
   m_ObjectHideFlags: 0
@@ -6159,7 +6161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1390877230
 Transform:
   m_ObjectHideFlags: 0
