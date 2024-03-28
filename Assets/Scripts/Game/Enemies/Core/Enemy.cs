@@ -10,6 +10,7 @@ namespace Enemies.Core
     public abstract class Enemy : Entity
     {
         [SerializeField] protected float deathTime = 1f;
+        [SerializeField] protected float distanceToAttack = 5f;
         [SerializeField] protected EnemyStats stats;
         [SerializeField, HideInInspector] protected EnemyAnimator animator;
         [SerializeField, HideInInspector] protected EnemyStateMachine stateMachine;
@@ -39,7 +40,12 @@ namespace Enemies.Core
 
         public void Attack(Transform target)
         {
-            stateMachine.StartNewState(new AttackState(target));
+            stateMachine.StartNewState(new AttackState(target, distanceToAttack));
+        }
+
+        public void StartFight()
+        {
+            //maybe create another state
         }
 
         protected override void Die()

@@ -31,6 +31,7 @@ namespace Entities
         }
 
         public virtual void MoveTo(Vector3 position) => EntityMotion.MoveTo(position);
+        public virtual float GetRemainingDistance() => EntityMotion.GetRemainingDistance();
 
         protected virtual void Reload()
         {

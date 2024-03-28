@@ -29,6 +29,10 @@ namespace Entities
             navMeshAgent.SetDestination(targetPosition);
         }
 
+        public float GetRemainingDistance()
+        {
+            return navMeshAgent.remainingDistance;
+        }
         public void Stop()
         {
             if (navMeshAgent.isOnNavMesh && !navMeshAgent.isStopped)
