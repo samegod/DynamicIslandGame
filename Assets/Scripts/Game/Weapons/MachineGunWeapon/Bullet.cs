@@ -1,4 +1,5 @@
 using System;
+using Interfaces;
 using UnityEngine;
 using Weapons.Core;
 
@@ -10,24 +11,25 @@ namespace Weapons.MachineGunWeapon
         [SerializeField] private float speed;
         [SerializeField] private Rigidbody rigidbody;
 
-        private bool _beenShot;
-
         private void Reset()
         {
             rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void Update()
-        {
-            if (!_beenShot) return;
-            
-            //transform.Translate(transform.forward * (Time.deltaTime * speed));
-        }
-
         public void Shoot()
         {
-            _beenShot = true;
             rigidbody.velocity = transform.forward * speed;
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            IHittable enemy = other.transform.GetComponent<IHittable>();
+
+            if (enemy == null)
+                return;
+            
+            enemy.TakeDamage(5f);
+            Push();
         }
     }
 }

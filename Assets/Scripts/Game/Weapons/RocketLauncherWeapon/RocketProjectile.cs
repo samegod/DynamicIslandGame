@@ -1,6 +1,7 @@
 using Core;
 using DG.Tweening;
 using Enemies.Core;
+using Interfaces;
 using UnityEngine;
 using Weapons.Core;
 
@@ -51,8 +52,8 @@ namespace Weapons.RocketLauncherWeapon
 
             for (int i = 0; i < size; i++)
             {
-                Enemy enemy = colliders[i].GetComponent<Enemy>();
-                if (!enemy)
+                IHittable enemy = colliders[i].GetComponent<IHittable>();
+                if (enemy == null)
                     continue;
                 
                 enemy.TakeDamage(damage);

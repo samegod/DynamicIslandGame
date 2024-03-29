@@ -5368,7 +5368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438272560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 52290454}
@@ -5376,7 +5376,7 @@ Transform:
   - {fileID: 267824302}
   - {fileID: 1403545926}
   m_Father: {fileID: 1639613720}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &438272562
 MonoBehaviour:
@@ -6338,7 +6338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390877229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1639613720}
@@ -6807,7 +6807,7 @@ MonoBehaviour:
   player: {fileID: 1639613720}
   enemy: {fileID: 7129706258064275938, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
   spawnPosition: {fileID: 2097240847}
-  spawnRate: 2
+  spawnRate: 0.5
 --- !u!1 &2097240846
 GameObject:
   m_ObjectHideFlags: 0
