@@ -28,8 +28,14 @@ namespace Weapons.MachineGunWeapon
             if (enemy == null)
                 return;
             
-            enemy.TakeDamage(5f);
+            enemy.TakeDamage(Damage);
             Push();
+        }
+
+        public override void Push()
+        {
+            //rigidbody.
+            base.Push();
         }
     }
 }

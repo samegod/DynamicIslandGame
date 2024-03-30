@@ -5403,11 +5403,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInput: {fileID: 438272562}
+  damage: 10
   bulletPrefab: {fileID: -5024839024487412968, guid: fd405d76b55af784a894270a754c0b61, type: 3}
   shootPoint: {fileID: 853426462}
   shootParticles: {fileID: 267824304}
   shotCooldown: 0.05
-  rotationSpeed: 10
+  rotationSpeed: 5
 --- !u!1 &491236386
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,6 +6370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInput: {fileID: 1390877231}
+  damage: 15
   inputPlane: {fileID: 345164265}
   projectilePrefab: {fileID: 3672278883491383471, guid: 7482ff2422b24cf4eb5ad242dbd80660, type: 3}
   aimPrefab: {fileID: 2613862306940279526, guid: c523b3436bb7d9e4a8f0220fcec2f131, type: 3}

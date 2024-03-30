@@ -33,6 +33,7 @@ namespace Weapons.RocketLauncherWeapon
             if (!projectile) return;
             
             projectile.transform.position = transform.position;
+            projectile.SetDamage(damage);
             projectile.Shoot(data.ShootPosition);
             
             ShootAction(projectile);

@@ -1,6 +1,5 @@
 using System;
 using Additions.Pool;
-using UnityEngine;
 using Weapons.Core.Interfaces;
 
 namespace Weapons.Core
@@ -9,7 +8,7 @@ namespace Weapons.Core
     {
         public event Action OnComplete;
         
-        [SerializeField] protected float damage;
+        protected float Damage;
 
         protected void Complete()
         {
@@ -19,6 +18,11 @@ namespace Weapons.Core
         public override void Push()
         {
             ProjectilesPool.Instance.Push(this);
+        }
+
+        public virtual void SetDamage(float damage)
+        {
+            Damage = damage;
         }
     }
 }

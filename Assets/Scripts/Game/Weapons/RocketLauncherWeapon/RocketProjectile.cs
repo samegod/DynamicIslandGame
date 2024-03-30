@@ -56,7 +56,7 @@ namespace Weapons.RocketLauncherWeapon
                 if (enemy == null)
                     continue;
                 
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(Damage);
             }
         }
     }
