@@ -13,6 +13,8 @@ namespace Enemies.StateMachine
         public abstract void Update();
         public abstract void Stop();
 
+        public virtual void FixedUpdate() {}
+        
         public void SetDefaultComponents(Enemy enemy, EnemyAnimator animator, EntityMotion motion)
         {
             Enemy = enemy;

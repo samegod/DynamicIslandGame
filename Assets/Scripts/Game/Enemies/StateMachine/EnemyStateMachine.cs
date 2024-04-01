@@ -1,3 +1,4 @@
+using System;
 using Enemies.Core;
 using UnityEngine;
 
@@ -27,10 +28,12 @@ namespace Enemies.StateMachine
 
         private void Update()
         {
-            if (_currentState != null)
-            {
-                _currentState.Update();
-            }
+            _currentState?.Update();
+        }
+
+        private void FixedUpdate()
+        {
+            _currentState?.FixedUpdate();
         }
 
         public void StopStates()

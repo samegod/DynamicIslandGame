@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 110429280}
   - component: {fileID: 110429279}
   - component: {fileID: 110429278}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5494,7 +5494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 511500823}
   - component: {fileID: 511500824}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5677,7 +5677,7 @@ GameObject:
   - component: {fileID: 773030704}
   - component: {fileID: 773030703}
   - component: {fileID: 773030706}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BodyVisualiser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6324,7 +6324,7 @@ GameObject:
   - component: {fileID: 1390877230}
   - component: {fileID: 1390877231}
   - component: {fileID: 1390877232}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RocketLouncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6457,7 +6457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1639613720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dynamic Blob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
