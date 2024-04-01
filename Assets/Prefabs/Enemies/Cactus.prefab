@@ -55,7 +55,11 @@ MonoBehaviour:
   entityMotion: {fileID: 7129706258064275937}
   health: {fileID: 1012895349349407474}
   deathTime: 1
-  distanceToAttack: 15
+  attackDistance: 5
+  hitDelay: 1
+  blobLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   stats: {fileID: 11400000, guid: 72a5a89f685981d44a8d6148a665832a, type: 2}
   animator: {fileID: 3477955732718147648}
   stateMachine: {fileID: 6004798880672317238}
