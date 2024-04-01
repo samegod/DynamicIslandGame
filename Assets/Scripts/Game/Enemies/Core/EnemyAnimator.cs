@@ -4,13 +4,14 @@ namespace Enemies.Core
 {
     public class EnemyAnimator : MonoBehaviour
     {
-        [SerializeField] private Animator animator;
+        [SerializeField] protected Animator animator;
 
-        private float _maxMotionSpeed = 1f;
-        
-        private readonly int _takeDamageHash = Animator.StringToHash("TakeDamage");
-        private readonly int _deathHash = Animator.StringToHash("Death");
-        private readonly int _motionSpeedHash = Animator.StringToHash("MotionSpeed");
+        protected float _maxMotionSpeed = 1f;
+
+        protected readonly int _takeDamageHash = Animator.StringToHash("TakeDamage");
+        protected readonly int _attackHash = Animator.StringToHash("Attack");
+        protected readonly int _deathHash = Animator.StringToHash("Death");
+        protected readonly int _motionSpeedHash = Animator.StringToHash("MotionSpeed");
 
         public void SetMaxMotionSpeed(float maxMotionSpeed)
         {
@@ -20,6 +21,9 @@ namespace Enemies.Core
         public void TakeDamage()
         {
             animator.SetTrigger(_takeDamageHash);
+        }
+        public void Attack() {
+            animator.SetTrigger(_attackHash);
         }
 
         public void Die()

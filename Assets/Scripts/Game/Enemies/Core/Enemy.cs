@@ -51,7 +51,7 @@ namespace Enemies.Core
             stateMachine.StartNewState(new CombatState(hitDelay, target));
         }
 
-        public void PerformAttack(IHittable target)
+        public virtual void PerformAttack(IHittable target)
         {
         }
 

@@ -57,12 +57,10 @@ MonoBehaviour:
   deathTime: 1
   attackDistance: 5
   hitDelay: 1
-  blobLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
   stats: {fileID: 11400000, guid: 72a5a89f685981d44a8d6148a665832a, type: 2}
   animator: {fileID: 3477955732718147648}
   stateMachine: {fileID: 6004798880672317238}
+  damage: 10
 --- !u!114 &7129706258064275937
 MonoBehaviour:
   m_ObjectHideFlags: 0
