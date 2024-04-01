@@ -5,12 +5,10 @@ namespace Enemies.StateMachine.States
     public class AttackState : EnemyState
     {
         private readonly Transform _targetPosition;
-        private readonly float _attackDistance;
         
-        public AttackState(Transform targetPosition,float attackDistance)
+        public AttackState(Transform targetPosition)
         {
             _targetPosition = targetPosition;
-            _attackDistance = attackDistance;
         }
         
         public override void Start()
@@ -20,9 +18,6 @@ namespace Enemies.StateMachine.States
 
         public override void Update()
         {
-            if (_attackDistance >= Enemy.GetRemainingDistance()) {
-                Enemy.StartFight();
-            }
         }
 
         public override void Stop()
