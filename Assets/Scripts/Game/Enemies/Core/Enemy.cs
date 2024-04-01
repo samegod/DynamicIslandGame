@@ -1,12 +1,13 @@
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
 using Entities;
+using Interfaces;
 using UnityEngine;
 
 namespace Enemies.Core
 {
     [RequireComponent(typeof(EnemyAnimator))]
-    public abstract class Enemy : Entity
+    public abstract class Enemy : Entity, IHittable
     {
         [SerializeField] protected float deathTime = 1f;
         [SerializeField] protected float attackDistance = 5f;
@@ -15,6 +16,8 @@ namespace Enemies.Core
         [SerializeField, HideInInspector] protected EnemyAnimator animator;
         [SerializeField, HideInInspector] protected EnemyStateMachine stateMachine;
 
+        private bool _dead;
+        
         public EnemyAnimator Animator => animator;
 
         private void OnValidate()
@@ -51,10 +54,14 @@ namespace Enemies.Core
         protected override void Die()
         {
             stateMachine.StartNewState(new DeathState(deathTime));
+            _dead = true;
         }
 
         public override void TakeDamage(float damage)
         {
+            if (_dead)
+                return;
+            
             Animator.TakeDamage();
             Health.ReduceHealth(damage);
         }
@@ -62,6 +69,7 @@ namespace Enemies.Core
         public void Remove()
         {
             stateMachine.StopStates();
+            _dead = false;
             Push();
         }
 

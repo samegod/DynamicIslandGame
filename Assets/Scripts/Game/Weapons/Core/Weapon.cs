@@ -9,6 +9,7 @@ namespace Weapons.Core
         public event Action<Projectile> OnShoot;
 
         [SerializeField] protected WeaponInput weaponInput;
+        [SerializeField] protected float damage;
         
         public WeaponInput WeaponInput => weaponInput;
 
