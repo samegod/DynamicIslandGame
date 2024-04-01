@@ -1,3 +1,4 @@
+using Interfaces;
 using UnityEngine;
 
 namespace Enemies.StateMachine.States
@@ -6,10 +7,12 @@ namespace Enemies.StateMachine.States
     {
         private float _hitDelay;
         private float _hitCooldown;
+        private IHittable _target;
         
-        public CombatState(float hitDelay)
+        public CombatState(float hitDelay, IHittable target)
         {
             _hitDelay = hitDelay;
+            _target = target;
         }
         
         public override void Start() { }
@@ -18,6 +21,7 @@ namespace Enemies.StateMachine.States
         {
             if (_hitCooldown >= _hitDelay) {
                 //Fight();
+                Enemy.PerformAttack(_target);
                 _hitCooldown = 0f;
             }
 

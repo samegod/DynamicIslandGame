@@ -1,3 +1,4 @@
+using Interfaces;
 using UnityEngine;
 
 namespace Enemies.StateMachine.States
@@ -20,22 +21,24 @@ namespace Enemies.StateMachine.States
             Enemy.MoveTo(_targetPosition.position);
         }
 
-        public override void Update()
-        {
-            if (_attackDistance >= Enemy.GetRemainingDistance())
-            {
-                Enemy.StartFight();
-            }
-        }
+        public override void Update() { }
 
         public override void FixedUpdate()
         {
             var size = Physics.OverlapSphereNonAlloc(Enemy.transform.position, _attackDistance, _colliders,
                 LayerMask.GetMask("Player"));
 
-            if (size == 1)
+            if (size == 0)
+                return;
+
+            foreach (var collider in _colliders)
             {
-                _colliders[0].GetComponent<IHitable>();
+                IHittable hittable = collider.GetComponent<IHittable>();
+
+                if (hittable != null)
+                {
+                    Enemy.StartFight(hittable);
+                }
             }
         }
 
