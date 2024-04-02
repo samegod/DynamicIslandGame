@@ -15,6 +15,7 @@ namespace Enemies.Core
         [SerializeField] protected EnemyStats stats;
         [SerializeField, HideInInspector] protected EnemyAnimator animator;
         [SerializeField, HideInInspector] protected EnemyStateMachine stateMachine;
+        [SerializeField, HideInInspector] protected EnemyCombatController combatController;
 
         private bool _dead;
         
@@ -24,6 +25,7 @@ namespace Enemies.Core
         {
             animator = GetComponent<EnemyAnimator>();
             stateMachine = GetComponent<EnemyStateMachine>();
+            combatController = GetComponent<EnemyCombatController>();
         }
 
         private void Awake()
@@ -51,9 +53,7 @@ namespace Enemies.Core
             stateMachine.StartNewState(new CombatState(hitDelay, target));
         }
 
-        public virtual void PerformAttack(IHittable target)
-        {
-        }
+        public virtual void PerformAttack(IHittable target) => combatController.PerformAttack(target);
 
         protected override void Die()
         {
