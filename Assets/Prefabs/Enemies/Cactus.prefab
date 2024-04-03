@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1012895349349407474}
   - component: {fileID: 3477955732718147648}
   - component: {fileID: 6004798880672317238}
+  - component: {fileID: 6424116211639716316}
   - component: {fileID: 7129706258064275950}
   - component: {fileID: 7129706258064275951}
   - component: {fileID: 7129706258064275936}
@@ -60,7 +61,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 72a5a89f685981d44a8d6148a665832a, type: 2}
   animator: {fileID: 3477955732718147648}
   stateMachine: {fileID: 6004798880672317238}
-  damage: 10
+  combatController: {fileID: 6424116211639716316}
 --- !u!114 &7129706258064275937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +114,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951bca2498462674eb99588cb250516c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6424116211639716316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129706258064275941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d10d6bd1169ecb4591633431c84f04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    damage: 0
+    type: 0
+    variationCount: 0
 --- !u!54 &7129706258064275950
 Rigidbody:
   m_ObjectHideFlags: 0

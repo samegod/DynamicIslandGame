@@ -1,3 +1,4 @@
+using Enemies.Combat;
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
 using Entities;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Enemies.Core
 {
-    [RequireComponent(typeof(EnemyAnimator))]
+    [RequireComponent(typeof(EnemyAnimator), typeof(EnemyStateMachine), typeof(EnemyCombatController))]
     public abstract class Enemy : Entity, IHittable
     {
         [SerializeField] protected float deathTime = 1f;
@@ -18,7 +19,7 @@ namespace Enemies.Core
         [SerializeField, HideInInspector] protected EnemyCombatController combatController;
 
         private bool _dead;
-        
+
         public EnemyAnimator Animator => animator;
 
         private void OnValidate()
@@ -65,7 +66,7 @@ namespace Enemies.Core
         {
             if (_dead)
                 return;
-            
+
             Animator.TakeDamage();
             Health.ReduceHealth(damage);
         }
@@ -81,7 +82,7 @@ namespace Enemies.Core
         {
             if (!stats)
                 return;
-            
+
             Health.SetMaxHealth(stats.Health);
             EntityMotion.SetSpeed(stats.Speed);
         }
