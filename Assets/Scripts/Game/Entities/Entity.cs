@@ -32,6 +32,11 @@ namespace Entities
 
         public virtual void MoveTo(Vector3 position) => EntityMotion.MoveTo(position);
 
+        public virtual void Stop()
+        {
+            EntityMotion.Stop();
+        }
+
         protected virtual void Reload()
         {
             EntityMotion.Stop();

@@ -33,6 +33,9 @@ namespace Enemies.StateMachine.States
 
             foreach (var collider in _colliders)
             {
+                if (!collider)
+                    continue;
+                
                 IHittable hittable = collider.GetComponent<IHittable>();
 
                 if (hittable != null)
@@ -44,6 +47,7 @@ namespace Enemies.StateMachine.States
 
         public override void Stop()
         {
+            Enemy.Stop();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Enemies.Combat;
 using Interfaces;
 using UnityEngine;
 
@@ -5,29 +6,25 @@ namespace Enemies.StateMachine.States
 {
     public class CombatState : EnemyState
     {
-        private float _hitDelay;
-        private float _hitCooldown;
+        private EnemyCombatController _combatController;
         private IHittable _target;
         
-        public CombatState(float hitDelay, IHittable target)
+        public CombatState(EnemyCombatController combatController, IHittable target)
         {
-            _hitDelay = hitDelay;
+            _combatController = combatController;
             _target = target;
         }
-        
-        public override void Start() { }
 
-        public override void Update()
+        public override void Start()
         {
-            if (_hitCooldown >= _hitDelay) {
-                //Fight();
-                Enemy.PerformAttack(_target);
-                _hitCooldown = 0f;
-            }
-
-            _hitCooldown += Time.deltaTime;
+            _combatController.StartCombat(_target);
         }
 
-        public override void Stop() { }
+        public override void Update() { }
+
+        public override void Stop()
+        {
+            _combatController.StopCombat();
+        }
     }
 }

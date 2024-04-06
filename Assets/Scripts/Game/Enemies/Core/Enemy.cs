@@ -14,6 +14,7 @@ namespace Enemies.Core
         [SerializeField] protected float attackDistance = 5f;
         [SerializeField] protected float hitDelay = 1f;
         [SerializeField] protected EnemyStats stats;
+        
         [SerializeField, HideInInspector] protected EnemyAnimator animator;
         [SerializeField, HideInInspector] protected EnemyStateMachine stateMachine;
         [SerializeField, HideInInspector] protected EnemyCombatController combatController;
@@ -32,6 +33,8 @@ namespace Enemies.Core
         private void Awake()
         {
             stateMachine.UpdateEnemy(this);
+            
+            combatController.Init(this, animator);
         }
 
         private void Start()
@@ -51,10 +54,8 @@ namespace Enemies.Core
 
         public void StartFight(IHittable target)
         {
-            stateMachine.StartNewState(new CombatState(hitDelay, target));
+            stateMachine.StartNewState(new CombatState(combatController, target));
         }
-
-        public virtual void PerformAttack(IHittable target) => combatController.PerformAttack(target);
 
         protected override void Die()
         {

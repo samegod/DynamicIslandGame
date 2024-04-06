@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882bed78872d2e941a9dac9c235e7690, type: 3}
+  m_Name: CactusAttackSettings
+  m_EditorClassIdentifier: 
+  attacks:
+  - type: 0
+    animationID: 0
+    animationTime: 1.3
+    impactTime: 0.5
+    damageMultiplier: 1
+    restTime: 0.5
+  - type: 1
+    animationID: 1
+    animationTime: 1
+    impactTime: 0.3
+    damageMultiplier: 1.2
+    restTime: 0.5
+  useAttackPatterns: 0
+  patterns:
+  - id: 0
+    restTime: 2
+    hits: 000000000000000001000000
+  - id: 1
+    restTime: 2
+    hits: 0100000000000000

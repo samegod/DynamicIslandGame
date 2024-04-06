@@ -12,6 +12,7 @@ namespace Enemies.Core
         protected readonly int _attackHash = Animator.StringToHash("Attack");
         protected readonly int _deathHash = Animator.StringToHash("Death");
         protected readonly int _motionSpeedHash = Animator.StringToHash("MotionSpeed");
+        protected readonly int _attackIdHash = Animator.StringToHash("AttackID");
 
         public void SetMaxMotionSpeed(float maxMotionSpeed)
         {
@@ -22,7 +23,8 @@ namespace Enemies.Core
         {
             animator.SetTrigger(_takeDamageHash);
         }
-        public void Attack() {
+        public void Attack(int id) {
+            animator.SetInteger(_attackIdHash, id);
             animator.SetTrigger(_attackHash);
         }
 
