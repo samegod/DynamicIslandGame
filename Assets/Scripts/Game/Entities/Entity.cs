@@ -1,12 +1,13 @@
 using Additions.Pool;
 using Enemies.Core;
 using Enemies.Pool;
+using Interfaces;
 using UnityEngine;
 
 namespace Entities
 {
     [RequireComponent(typeof(EntityMotion), typeof(EntityHealth))]
-    public abstract class Entity : MonoBehaviourPoolObject
+    public abstract class Entity : MonoBehaviourPoolObject, IHittable
     {
         [SerializeField, HideInInspector] protected EntityMotion entityMotion;
         [SerializeField, HideInInspector] protected EntityHealth health;

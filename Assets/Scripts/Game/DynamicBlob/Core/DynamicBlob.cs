@@ -7,7 +7,6 @@ namespace DynamicBlob.Core
     {
         public void TakeDamage(float damage)
         {
-            Debug.Log("take " + damage + " damage");
         }
     }
 }

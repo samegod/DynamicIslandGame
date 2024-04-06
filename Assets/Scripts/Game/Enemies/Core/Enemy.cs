@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Enemies.Core
 {
     [RequireComponent(typeof(EnemyAnimator), typeof(EnemyStateMachine), typeof(EnemyCombatController))]
-    public abstract class Enemy : Entity, IHittable
+    public abstract class Enemy : Entity
     {
         [SerializeField] protected float deathTime = 1f;
         [SerializeField] protected float attackDistance = 5f;
