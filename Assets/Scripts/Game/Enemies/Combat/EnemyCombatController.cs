@@ -15,12 +15,18 @@ namespace Enemies.Combat
         private EnemyAnimator _animator;
         private IHittable _target;
         private bool _combatIsGoing;
+        private float _damage = 1;
         private Coroutine _combatCoroutine;
 
         public void Init(Enemy enemy, EnemyAnimator animator)
         {
             _thisEnemy = enemy;
             _animator = animator;
+        }
+
+        public void SetDamage(float damage)
+        {
+            _damage = damage;
         }
 
         public void StartCombat(IHittable target)
@@ -66,7 +72,7 @@ namespace Enemies.Combat
         {
             _animator.Attack(description.animationID);
             yield return new WaitForSeconds(description.impactTime);
-            _target.TakeDamage(1 * description.damageMultiplier);
+            _target.TakeDamage(_damage * description.damageMultiplier);
             yield return new WaitForSeconds(description.animationTime - description.impactTime + description.restTime);
         }
     }

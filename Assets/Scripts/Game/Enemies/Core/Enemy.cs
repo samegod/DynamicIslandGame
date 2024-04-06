@@ -12,7 +12,6 @@ namespace Enemies.Core
     {
         [SerializeField] protected float deathTime = 1f;
         [SerializeField] protected float attackDistance = 5f;
-        [SerializeField] protected float hitDelay = 1f;
         [SerializeField] protected EnemyStats stats;
         
         [SerializeField, HideInInspector] protected EnemyAnimator animator;
@@ -84,6 +83,7 @@ namespace Enemies.Core
             if (!stats)
                 return;
 
+            combatController.SetDamage(stats.Damage);
             Health.SetMaxHealth(stats.Health);
             EntityMotion.SetSpeed(stats.Speed);
         }
