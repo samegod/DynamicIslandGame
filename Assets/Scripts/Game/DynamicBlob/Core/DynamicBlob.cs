@@ -1,12 +1,20 @@
-using Interfaces;
+using DynamicBlob.PlayerShield;
 using UnityEngine;
 
 namespace DynamicBlob.Core
 {
-    public class DynamicBlob : MonoBehaviour,IHittable
+    public class DynamicBlob : MonoBehaviour
     {
-        public void TakeDamage(float damage)
+        [SerializeField] private Shield shield;
+
+        private void OnEnable()
         {
+            shield.OnShieldBroken += ShieldBroken;
+        }
+
+        private void ShieldBroken()
+        {
+            Debug.Log("ShieldBroken");
         }
     }
 }

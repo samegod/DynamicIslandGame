@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Entities
 {
-    [RequireComponent(typeof(EntityMotion), typeof(EntityHealth))]
+    [RequireComponent(typeof(EntityHealth))]
     public abstract class Entity : MonoBehaviourPoolObject, IHittable
     {
         [SerializeField, HideInInspector] protected EntityMotion entityMotion;
@@ -31,7 +31,11 @@ namespace Entities
             Health.OnDeath -= Die;
         }
 
-        public virtual void MoveTo(Vector3 position) => EntityMotion.MoveTo(position);
+        public virtual void MoveTo(Vector3 position)
+        {
+            if (EntityMotion)
+                EntityMotion.MoveTo(position);
+        }
 
         public virtual void Stop()
         {
@@ -40,10 +44,11 @@ namespace Entities
 
         protected virtual void Reload()
         {
-            EntityMotion.Stop();
+            if (EntityMotion)
+                EntityMotion.Stop();
             Health.Reload();
         }
-        
+
         public abstract void TakeDamage(float damage);
         protected abstract void Die();
 

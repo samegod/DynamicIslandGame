@@ -1,7 +1,7 @@
 using System;
 using Entities;
 
-namespace DynamicBlob.Core
+namespace DynamicBlob.PlayerShield
 {
     public class Shield : Entity
     {
