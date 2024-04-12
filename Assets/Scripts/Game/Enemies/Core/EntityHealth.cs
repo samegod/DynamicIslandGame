@@ -5,6 +5,7 @@ namespace Enemies.Core
 {
     public class EntityHealth : MonoBehaviour
     {
+        public event Action OnHealthChanged;
         public event Action OnDeath;
 
         [SerializeField] private float maxHealth;
@@ -12,6 +13,7 @@ namespace Enemies.Core
         private float _currentHealth;
 
         public float CurrentHealth => _currentHealth;
+        public float MaxHealth => maxHealth;
 
         public void Reload()
         {
@@ -34,6 +36,8 @@ namespace Enemies.Core
             }
 
             if (_currentHealth> maxHealth) _currentHealth = maxHealth;
+            
+            OnHealthChanged?.Invoke();
         }
         
         public void Die()

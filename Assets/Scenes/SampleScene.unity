@@ -6085,6 +6085,7 @@ MonoBehaviour:
   preloadCount: 10
   entityMotion: {fileID: 0}
   health: {fileID: 802196282}
+  maxHealth: 100
 --- !u!114 &802196282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6287,6 +6288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1022022310}
   - component: {fileID: 1022022311}
+  - component: {fileID: 1022022312}
   m_Layer: 5
   m_Name: ShieldHPBar
   m_TagString: Untagged
@@ -6367,6 +6369,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1022022312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022022309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8fed08b9886c9409d1bde8ff6d1c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1022022311}
+  trackedHealth: {fileID: 802196282}
 --- !u!1 &1068772812
 GameObject:
   m_ObjectHideFlags: 0
