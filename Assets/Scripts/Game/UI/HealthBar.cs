@@ -18,7 +18,6 @@ namespace UI
         private void ChangeHealth()
         {
             float newValue = trackedHealth.CurrentHealth / trackedHealth.MaxHealth;
-            Debug.Log(newValue);
             healthSlider.value = newValue;
         }
     }

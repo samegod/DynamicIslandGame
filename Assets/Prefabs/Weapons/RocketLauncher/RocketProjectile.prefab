@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3672278883395315242}
   - component: {fileID: 6868630779564733787}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3672278883491383472}
   - component: {fileID: 3672278883491383471}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RocketProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: db770a2673b55a34fa6022f18bddf3d1, type: 3}
       propertyPath: m_Name
       value: Rocket (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db770a2673b55a34fa6022f18bddf3d1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db770a2673b55a34fa6022f18bddf3d1, type: 3}
