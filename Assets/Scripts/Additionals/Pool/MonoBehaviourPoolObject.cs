@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Additions.Pool
 {
     public abstract class MonoBehaviourPoolObject : MonoBehaviour, IPoolObject
     {
+        public event Action OnPopped;
+        public event Action OnPushed;
+        
         [SerializeField] private int preloadCount = 10;
 
         public int PreloadCount => preloadCount;
@@ -21,9 +25,15 @@ namespace Additions.Pool
         public abstract void Push();
 
         public virtual void OnPop()
-            => gameObject.SetActive(true);
+        {
+            gameObject.SetActive(true);
+            OnPopped?.Invoke();
+        }
 
         public virtual void OnPush()
-            => gameObject.SetActive(false);
+        {
+            gameObject.SetActive(false);
+            OnPushed?.Invoke();
+        }
     }
 }
