@@ -1,4 +1,3 @@
-using System;
 using Interfaces;
 using UnityEngine;
 using Weapons.Core;
@@ -28,14 +27,8 @@ namespace Weapons.MachineGunWeapon
             if (enemy == null)
                 return;
             
-            enemy.TakeDamage(Damage);
+            enemy.TakeDamage(CombineHitData());
             Push();
-        }
-
-        public override void Push()
-        {
-            //rigidbody.
-            base.Push();
         }
     }
 }

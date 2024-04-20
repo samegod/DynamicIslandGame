@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Additions.Pool;
+using Buffs.Interfaces;
+using Sirenix.Utilities;
+using UnityEngine;
 using Weapons.Core.Interfaces;
 
 namespace Weapons.Core
@@ -9,11 +13,7 @@ namespace Weapons.Core
         public event Action OnComplete;
         
         protected float Damage;
-
-        protected void Complete()
-        {
-            OnComplete?.Invoke();
-        }
+        protected readonly List<IEffectBuff> Effects = new List<IEffectBuff>();
         
         public override void Push()
         {
@@ -23,6 +23,30 @@ namespace Weapons.Core
         public virtual void SetDamage(float damage)
         {
             Damage = damage;
+        }
+
+        public virtual void SetEffects(List<IEffectBuff> effects)
+        {
+            if (effects.IsNullOrEmpty())
+                return;
+            
+            Effects.AddRange(effects);
+        }
+
+        protected HitData CombineHitData()
+        {
+            var newData = new HitData
+            {
+                Effects = Effects,
+                Damage = Damage
+            };
+
+            return newData;
+        }
+        
+        protected void Complete()
+        {
+            OnComplete?.Invoke();
         }
     }
 }

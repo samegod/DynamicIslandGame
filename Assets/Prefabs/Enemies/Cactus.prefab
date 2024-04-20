@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3477955732718147648}
   - component: {fileID: 6004798880672317238}
   - component: {fileID: 6424116211639716316}
+  - component: {fileID: 884889243018261231}
   - component: {fileID: 7129706258064275950}
   - component: {fileID: 7129706258064275951}
   - component: {fileID: 7129706258064275936}
@@ -57,8 +58,8 @@ MonoBehaviour:
   health: {fileID: 1012895349349407474}
   deathTime: 1
   attackDistance: 5
-  hitDelay: 1
   stats: {fileID: 11400000, guid: 72a5a89f685981d44a8d6148a665832a, type: 2}
+  buffsHolder: {fileID: 884889243018261231}
   animator: {fileID: 3477955732718147648}
   stateMachine: {fileID: 6004798880672317238}
   combatController: {fileID: 6424116211639716316}
@@ -127,6 +128,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSettings: {fileID: 11400000, guid: 87c92b8171103ac468541db1302c723f, type: 2}
+--- !u!114 &884889243018261231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129706258064275941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa59f619534b8204e931f51b1f3de797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &7129706258064275950
 Rigidbody:
   m_ObjectHideFlags: 0

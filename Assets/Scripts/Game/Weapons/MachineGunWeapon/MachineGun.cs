@@ -44,6 +44,7 @@ namespace Weapons.MachineGunWeapon
                 newBullet.transform.position = shootPoint.position;
                 newBullet.transform.rotation = transform.rotation;
                 newBullet.SetDamage(damage);
+                AddEffects(newBullet);
                 newBullet.Shoot();
                 
                 _currentShotCooldown = shotCooldown;

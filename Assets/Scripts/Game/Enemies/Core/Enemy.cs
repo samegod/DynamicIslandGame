@@ -1,19 +1,24 @@
+using Buffs;
+using Buffs.Core;
 using Enemies.Combat;
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
 using Entities;
 using Interfaces;
 using UnityEngine;
+using Weapons.Core;
 
 namespace Enemies.Core
 {
     [RequireComponent(typeof(EnemyAnimator), typeof(EnemyStateMachine), typeof(EnemyCombatController))]
+    [RequireComponent(typeof(BuffsHolder))]
     public abstract class Enemy : Entity
     {
         [SerializeField] protected float deathTime = 1f;
         [SerializeField] protected float attackDistance = 5f;
         [SerializeField] protected EnemyStats stats;
-        
+
+        [SerializeField, HideInInspector] protected BuffsHolder buffsHolder;
         [SerializeField, HideInInspector] protected EnemyAnimator animator;
         [SerializeField, HideInInspector] protected EnemyStateMachine stateMachine;
         [SerializeField, HideInInspector] protected EnemyCombatController combatController;
@@ -24,24 +29,25 @@ namespace Enemies.Core
 
         private void OnValidate()
         {
+            buffsHolder = GetComponent<BuffsHolder>();
             animator = GetComponent<EnemyAnimator>();
             stateMachine = GetComponent<EnemyStateMachine>();
             combatController = GetComponent<EnemyCombatController>();
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             stateMachine.UpdateEnemy(this);
             
             combatController.Init(this, animator);
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             InitStats();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             Animator.SetMotionSpeed(EntityMotion.CurrentSpeed);
         }
@@ -69,6 +75,12 @@ namespace Enemies.Core
 
             Animator.TakeDamage();
             Health.ReduceHealth(damage);
+        }
+
+        public override void TakeDamage(HitData hitData)
+        {
+            TakeDamage(hitData.Damage);
+            buffsHolder.AddBuff(hitData.Effects);
         }
 
         public void Remove()

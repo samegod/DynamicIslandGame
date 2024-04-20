@@ -3,6 +3,7 @@ using Enemies.Core;
 using Enemies.Pool;
 using Interfaces;
 using UnityEngine;
+using Weapons.Core;
 
 namespace Entities
 {
@@ -50,6 +51,8 @@ namespace Entities
         }
 
         public abstract void TakeDamage(float damage);
+        public abstract void TakeDamage(HitData hitData);
+
         protected abstract void Die();
 
         public override void OnPop()

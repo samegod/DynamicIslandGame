@@ -1,6 +1,7 @@
 using System;
 using Entities;
 using UnityEngine;
+using Weapons.Core;
 
 namespace DynamicBlob.PlayerShield
 {
@@ -20,7 +21,12 @@ namespace DynamicBlob.PlayerShield
         {
             health.ReduceHealth(damage);
         }
- 
+
+        public override void TakeDamage(HitData hitData)
+        {
+            health.ReduceHealth(hitData.Damage);
+        }
+
         protected override void Die()
         {
             OnShieldBroken?.Invoke();
