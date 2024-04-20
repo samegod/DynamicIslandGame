@@ -36,7 +36,6 @@ namespace Buffs.Core
             if (newBuff.IsNullOrEmpty())
                 return;
 
-            Debug.Log("addbuff");
             foreach (var buff in newBuff)
             {
                 AddBuff(buff);

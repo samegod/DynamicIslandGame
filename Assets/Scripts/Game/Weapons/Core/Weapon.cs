@@ -9,29 +9,44 @@ namespace Weapons.Core
         public event Action<Projectile> OnShoot;
 
         [SerializeField] protected WeaponInput weaponInput;
-        [SerializeField] protected float damage;
+        [SerializeField] private float attackDelay;
+        [SerializeField] private float damage;
 
-        private ArtifactsManager _artifacts;
-        
+        private WeaponStats _stats;
+        private ArtifactsManager _artifactsManager;
+
         public WeaponInput WeaponInput => weaponInput;
-
-        public ArtifactsManager ArtifactsManager => _artifacts;
+        public ArtifactsManager ArtifactsManager => _artifactsManager;
+        public WeaponStats Stats => _stats;
 
         protected virtual void Awake()
         {
-            _artifacts = new ArtifactsManager();
+            _stats = new WeaponStats();
+            _artifactsManager = new ArtifactsManager();
+            ArtifactsManager.SetWeapon(this);
+        }
+
+        private void Start()
+        {
+            InitStats();
         }
 
         public abstract void Shoot(ShotData data);
 
         protected void AddEffects(Projectile projectile)
         {
-            projectile.SetEffects(_artifacts.GetEffects());
+            projectile.SetEffects(ArtifactsManager.GetEffects());
         }
         
         protected void ShootAction(Projectile projectile)
         {
             OnShoot?.Invoke(projectile);
+        }
+
+        private void InitStats()
+        {
+            _stats.Damage = damage;
+            _stats.AttackDelay = attackDelay;
         }
     }
 }

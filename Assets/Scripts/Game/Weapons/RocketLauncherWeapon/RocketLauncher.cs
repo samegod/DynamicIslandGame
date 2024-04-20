@@ -12,7 +12,7 @@ namespace Weapons.RocketLauncherWeapon
 
         private RocketLauncherAimController _aimController;
 
-        private void Awake()
+        protected override void Awake()
         {
             _aimController = new RocketLauncherAimController(this, aimPrefab, inputPlane);
         }
@@ -33,7 +33,7 @@ namespace Weapons.RocketLauncherWeapon
             if (!projectile) return;
             
             projectile.transform.position = transform.position;
-            projectile.SetDamage(damage);
+            projectile.SetDamage(Stats.Damage);
             projectile.Shoot(data.ShootPosition);
             
             ShootAction(projectile);

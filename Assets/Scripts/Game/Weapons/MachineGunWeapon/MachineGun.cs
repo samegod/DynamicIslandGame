@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Weapons.Core;
 
@@ -9,7 +8,6 @@ namespace Weapons.MachineGunWeapon
         [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private Transform shootPoint;
         [SerializeField] private ParticleSystem shootParticles;
-        [SerializeField] private float shotCooldown;
         [SerializeField] private float rotationSpeed;
 
         private float _currentShotCooldown;
@@ -43,11 +41,11 @@ namespace Weapons.MachineGunWeapon
 
                 newBullet.transform.position = shootPoint.position;
                 newBullet.transform.rotation = transform.rotation;
-                newBullet.SetDamage(damage);
+                newBullet.SetDamage(Stats.Damage);
                 AddEffects(newBullet);
                 newBullet.Shoot();
                 
-                _currentShotCooldown = shotCooldown;
+                _currentShotCooldown = Stats.AttackDelay;
                 shootParticles.Play();
             }
         }

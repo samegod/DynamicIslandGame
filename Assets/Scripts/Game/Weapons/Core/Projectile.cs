@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Additions.Pool;
 using Buffs.Interfaces;
 using Sirenix.Utilities;
-using UnityEngine;
 using Weapons.Core.Interfaces;
 
 namespace Weapons.Core
