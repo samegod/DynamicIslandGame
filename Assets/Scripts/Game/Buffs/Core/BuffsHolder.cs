@@ -9,7 +9,7 @@ namespace Buffs.Core
     public class BuffsHolder : MonoBehaviour
     {
         private Enemy _thisEnemy;
-        private List<IEffectBuff> _currentBuffs = new List<IEffectBuff>();
+        private List<IBuff> _currentBuffs = new List<IBuff>();
 
         private void Awake()
         {
@@ -24,14 +24,14 @@ namespace Buffs.Core
             }
         }
 
-        public void AddBuff(IEffectBuff newBuff)
+        public void AddBuff(IBuff newBuff)
         {
             newBuff.InitEnemy(_thisEnemy);
             newBuff.Start();
             _currentBuffs.Add(newBuff);
         }
 
-        public void AddBuff(List<IEffectBuff> newBuff)
+        public void AddBuff(List<IBuff> newBuff)
         {
             if (newBuff.IsNullOrEmpty())
                 return;

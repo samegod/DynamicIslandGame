@@ -1,11 +1,13 @@
-﻿using Buffs.Interfaces;
+﻿using Buffs.Core;
+using Buffs.Interfaces;
 
-namespace Buffs.Core
+namespace Buffs
 {
-    public class Effect : Buff
+    public class Bolt : Buff
     {
         public override void Start()
         {
+            
         }
 
         public override void Update()

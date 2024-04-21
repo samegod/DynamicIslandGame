@@ -1,5 +1,5 @@
-using Buffs;
 using Buffs.Core;
+using Buffs.Interfaces;
 using Enemies.Combat;
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
@@ -12,7 +12,7 @@ namespace Enemies.Core
 {
     [RequireComponent(typeof(EnemyAnimator), typeof(EnemyStateMachine), typeof(EnemyCombatController))]
     [RequireComponent(typeof(BuffsHolder))]
-    public abstract class Enemy : Entity
+    public abstract class Enemy : Entity, IBuffable, IEffectable
     {
         [SerializeField] protected float deathTime = 1f;
         [SerializeField] protected float attackDistance = 5f;
@@ -61,6 +61,11 @@ namespace Enemies.Core
         {
             stateMachine.StartNewState(new CombatState(combatController, target));
         }
+        
+        public void AddBuff(IBuff buff)
+        {
+            buffsHolder.AddBuff(buff);
+        }
 
         protected override void Die()
         {
@@ -80,7 +85,6 @@ namespace Enemies.Core
         public override void TakeDamage(HitData hitData)
         {
             TakeDamage(hitData.Damage);
-            buffsHolder.AddBuff(hitData.Effects);
         }
 
         public void Remove()
@@ -98,6 +102,11 @@ namespace Enemies.Core
             combatController.SetDamage(stats.Damage);
             Health.SetMaxHealth(stats.Health);
             EntityMotion.SetSpeed(stats.Speed);
+        }
+
+        public void AddBuff(Buff buff)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

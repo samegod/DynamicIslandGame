@@ -28,6 +28,7 @@ namespace Weapons.MachineGunWeapon
                 return;
             
             enemy.TakeDamage(CombineHitData());
+            DealDamage(enemy);
             Push();
         }
     }

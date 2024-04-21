@@ -12,15 +12,5 @@ namespace DynamicBlob.Core
         {
             
         }
-
-        private void UpgradeArtifact(ArtifactName artifact)
-        {
-            
-        }
-
-        private void AddNewArtifact(ArtifactName newArtifact)
-        {
-            
-        }
     }
 }

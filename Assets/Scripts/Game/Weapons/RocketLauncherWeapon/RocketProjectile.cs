@@ -57,6 +57,7 @@ namespace Weapons.RocketLauncherWeapon
                     continue;
                 
                 enemy.TakeDamage(Damage);
+                base.DealDamage(enemy);
             }
         }
     }

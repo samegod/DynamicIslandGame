@@ -12,7 +12,7 @@ namespace Artifacts
             return 50;
         }
 
-        public IEffectBuff CreateBuff()
+        public IBuff CreateBuff()
         {
             return new Poison();
         }

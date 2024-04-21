@@ -28,7 +28,7 @@ namespace Weapons.RocketLauncherWeapon.Aim
             applyEffect.StartEffect();
         }
 
-        public void Hide()
+        public void Hide(Projectile projectile)
         {
             _currentlyTrackingProjectile.OnComplete -= Hide;
             _currentlyTrackingProjectile = null;

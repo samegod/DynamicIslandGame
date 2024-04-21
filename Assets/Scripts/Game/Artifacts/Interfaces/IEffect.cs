@@ -5,6 +5,6 @@ namespace Artifacts.Interfaces
     public interface IEffect : IArtifact
     {
         int GetProcChance();
-        IEffectBuff CreateBuff();
+        //IEffectBuff CreateBuff();
     }
 }
