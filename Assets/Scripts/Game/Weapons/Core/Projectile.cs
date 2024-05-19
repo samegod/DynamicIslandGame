@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Additions.Pool;
 using Buffs.Interfaces;
-using Interfaces;
+using Entities.Interfaces;
 using Sirenix.Utilities;
 using Weapons.Core.Interfaces;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Enemies.Core;
-using Interfaces;
+using Entities.Interfaces;
 using Items.Interfaces;
 using Sirenix.Utilities;
 using UnityEngine;

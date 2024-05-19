@@ -1,6 +1,11 @@
+using Artifacts.Factory;
+using Buffs.Factory;
+using CharacterInventory;
+using CharacterInventory.ArtifactsProc;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.StaticData;
+using Effects.Factory;
 using Enemies.Factory;
 using Infrastructure.AssetManagement;
 using Infrastructure.Identifiers;
@@ -14,17 +19,20 @@ namespace Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            BindInputService();
             BindInfrastructureServices();
-            BindGameplayFactories();
-            BindUIService();
-            BindAssetManagementServices();
             BindCommonServices();
-            BindSystemFactory();
+            BindGameplayFactories();
+            BindAssetManagementServices();
             BindGameplayServices();
             BindCameraProvider();
         }
 
+
+        private void BindInfrastructureServices()
+        {
+            Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
+        }
+        
         private void BindCameraProvider()
         {
             Container.BindInterfacesAndSelfTo<CameraProvider>().AsSingle();
@@ -33,17 +41,16 @@ namespace Infrastructure.Installers
         private void BindGameplayServices()
         {
             Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+            Container.Bind<IArtifactsProcService>().To<ArtifactsProcService>().AsSingle();
         }
 
-        private void BindInfrastructureServices()
-        {
-            Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
-            Container.Bind<IIdentifierService>().To<IdentifierService>().AsSingle();
-        }
 
         private void BindGameplayFactories()
         {
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
+            Container.Bind<IArtifactFactory>().To<ArtifactFactory>().AsSingle();
+            Container.Bind<IBuffFactory>().To<BuffFactory>().AsSingle();
+            Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
         }
 
         private void BindAssetManagementServices()
@@ -57,22 +64,10 @@ namespace Infrastructure.Installers
             Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
         }
 
-        private void BindSystemFactory()
-        {
-        }
-
-        private void BindInputService()
-        {
-        }
-
-        private void BindUIService()
-        {
-        }
-
         public void Initialize()
         {
             Container.Resolve<IStaticDataService>().LoadAll();
-            Container.Resolve<ISceneLoader>().LoadScene(Scenes.Meadow);
+            Container.Resolve<ISceneLoader>().LoadScene(Scenes.SampleScene);
         }
     }
 }

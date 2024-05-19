@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using Enemies.Core;
-using Interfaces;
+using Entities.Interfaces;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

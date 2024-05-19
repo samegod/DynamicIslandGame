@@ -1,4 +1,3 @@
-using Enemies.Core;
 using UnityEngine;
 
 namespace Enemies.StateMachine.States

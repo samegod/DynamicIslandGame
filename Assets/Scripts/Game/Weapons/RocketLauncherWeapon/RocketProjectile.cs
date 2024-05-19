@@ -1,7 +1,7 @@
 using Core;
 using DG.Tweening;
 using Enemies.Core;
-using Interfaces;
+using Entities.Interfaces;
 using UnityEngine;
 using Weapons.Core;
 

@@ -1,4 +1,3 @@
-using System;
 using Enemies.Core;
 using UnityEngine;
 

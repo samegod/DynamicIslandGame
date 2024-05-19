@@ -46,6 +46,8 @@ namespace Weapons.MachineGunWeapon
                 
                 _currentShotCooldown = Stats.AttackDelay;
                 shootParticles.Play();
+                
+                ShootAction(newBullet);
             }
         }
 

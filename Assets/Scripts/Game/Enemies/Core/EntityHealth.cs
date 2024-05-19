@@ -15,6 +15,11 @@ namespace Enemies.Core
         public float CurrentHealth => _currentHealth;
         public float MaxHealth => maxHealth;
 
+        private void Awake()
+        {
+            Reload();
+        }
+
         public void Reload()
         {
             _currentHealth = maxHealth;
@@ -42,6 +47,7 @@ namespace Enemies.Core
         
         public void Die()
         {
+            Debug.Log("die");
             OnDeath?.Invoke();
         }
     }

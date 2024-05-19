@@ -1,10 +1,11 @@
 using Buffs.Core;
 using Buffs.Interfaces;
+using Effects;
 using Enemies.Combat;
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
 using Entities;
-using Interfaces;
+using Entities.Interfaces;
 using UnityEngine;
 using Weapons.Core;
 
@@ -35,8 +36,9 @@ namespace Enemies.Core
             combatController = GetComponent<EnemyCombatController>();
         }
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             stateMachine.UpdateEnemy(this);
             
             combatController.Init(this, animator);
@@ -64,6 +66,7 @@ namespace Enemies.Core
         
         public void AddBuff(IBuff buff)
         {
+            Debug.Log("buff added");
             buffsHolder.AddBuff(buff);
         }
 
@@ -104,7 +107,7 @@ namespace Enemies.Core
             EntityMotion.SetSpeed(stats.Speed);
         }
 
-        public void AddBuff(Buff buff)
+        public void AddEffect(IEffect effect)
         {
             throw new System.NotImplementedException();
         }
