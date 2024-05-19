@@ -7,7 +7,7 @@ namespace Buffs
     {
         private float _currentPeriodTime;
 
-        public Poison(float value, float duration, float period) : base(value, duration, period)
+        public Poison(BuffTypeId buffTypeId, float value, float duration, float period) : base(buffTypeId, value, duration, period)
         {
         }
 
@@ -15,6 +15,11 @@ namespace Buffs
 
         public override void Update()
         {
+            base.Update();
+            
+            if (!IsWorking)
+                return;
+            
             _currentPeriodTime += Time.deltaTime;
 
             if (_currentPeriodTime >= Period)

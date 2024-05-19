@@ -9,7 +9,7 @@ namespace Buffs.Factory
         {
             if (setup.TypeId == BuffTypeId.Poison)
             {
-                return new Poison(setup.Value, setup.Duration, setup.Period);
+                return new Poison(setup.TypeId, setup.Value, setup.Duration, setup.Period);
             }
 
             throw new Exception("Buff type Id is Unknown");

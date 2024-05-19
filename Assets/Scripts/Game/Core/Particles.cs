@@ -17,7 +17,6 @@ namespace Core
         
         void OnParticleSystemStopped()
         {
-            Debug.Log("System has stopped!");
             Push();
         }
         

@@ -14,6 +14,7 @@ namespace Weapons.RocketLauncherWeapon
 
         protected override void Awake()
         {
+            base.Awake();
             _aimController = new RocketLauncherAimController(this, aimPrefab, inputPlane);
         }
 

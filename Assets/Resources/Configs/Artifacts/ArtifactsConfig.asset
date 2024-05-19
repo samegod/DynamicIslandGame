@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: ArtifactsConfig
   m_EditorClassIdentifier: 
   artifactTypeId: 1
-  behaviour: 3
-  procTriggers: 
-  procChance: 0.377
+  behaviour: 1
+  procTriggers: 01000000
+  procChance: 1
   effectSetups: []
-  buffSetups: []
+  buffSetups:
+  - typeId: 1
+    value: 1
+    duration: 10
+    period: 1
   statSetups: []

@@ -10,7 +10,7 @@ namespace Enemies.Core
 
         [SerializeField] private float maxHealth;
         
-        private float _currentHealth;
+        [SerializeField] private float _currentHealth;
 
         public float CurrentHealth => _currentHealth;
         public float MaxHealth => maxHealth;

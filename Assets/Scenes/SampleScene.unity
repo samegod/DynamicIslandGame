@@ -248,6 +248,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1012895349349407474, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7129706258064275939, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5617,7 +5621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &438272561
 Transform:
   m_ObjectHideFlags: 0
@@ -5663,7 +5667,6 @@ MonoBehaviour:
   weaponInput: {fileID: 438272562}
   attackDelay: 0.1
   damage: 0
-  procChance: 1
   bulletPrefab: {fileID: -5024839024487412968, guid: fd405d76b55af784a894270a754c0b61, type: 3}
   shootPoint: {fileID: 853426462}
   shootParticles: {fileID: 267824304}
@@ -7148,7 +7151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1390877230
 Transform:
   m_ObjectHideFlags: 0
@@ -7190,7 +7193,6 @@ MonoBehaviour:
   weaponInput: {fileID: 1390877231}
   attackDelay: 0
   damage: 15
-  procChance: 0
   inputPlane: {fileID: 345164265}
   projectilePrefab: {fileID: 3672278883491383471, guid: 7482ff2422b24cf4eb5ad242dbd80660, type: 3}
   aimPrefab: {fileID: 2613862306940279526, guid: c523b3436bb7d9e4a8f0220fcec2f131, type: 3}
@@ -7511,8 +7513,6 @@ GameObject:
   - component: {fileID: 1639613721}
   - component: {fileID: 1639613723}
   - component: {fileID: 1639613722}
-  - component: {fileID: 1639613724}
-  - component: {fileID: 1639613725}
   m_Layer: 7
   m_Name: Dynamic Blob
   m_TagString: Untagged
@@ -7551,7 +7551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384eb6f138e84d84f96d1ea32219aa48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 438272563}
+  weapon: {fileID: 1390877232}
   shield: {fileID: 802196281}
 --- !u!114 &1639613722
 MonoBehaviour:
@@ -7578,30 +7578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1639613721}
---- !u!114 &1639613724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639613719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef03ce657db04f41a320574faf377119, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1639613725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639613719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd7962faffc49b79f71775c186daa6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1697539109
 GameObject:
   m_ObjectHideFlags: 0
@@ -7685,6 +7661,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1012895349349407474, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7129706258064275939, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: m_RootOrder
       value: 3
