@@ -1,5 +1,5 @@
-﻿using Entities.Interfaces;
-using UnityEngine;
+﻿using System;
+using Entities.Interfaces;
 
 namespace Effects.Factory
 {
@@ -7,8 +7,20 @@ namespace Effects.Factory
     {
         public Effect CreateEffect(EffectSetup setup, IEffectable target)
         {
-            Effect newEffect = Object.Instantiate(setup.EffectPrefab);
-            newEffect.Init(setup.TypeId, target, setup.Value);
+            switch (setup.TypeId)
+            {
+                case EffectTypeId.LightningStrike:
+                    return CreateLightningStrike(setup, target);
+                    break;
+            }
+
+            throw new Exception("Could not create effect " + setup.TypeId);
+        }
+
+        private Effect CreateLightningStrike(EffectSetup setup, IEffectable target)
+        {
+            Effect newEffect = new LightningStrike();
+            newEffect.Init(setup.TypeId, target, setup.Value, setup.Visuals);
             newEffect.Activate();
 
             return newEffect;

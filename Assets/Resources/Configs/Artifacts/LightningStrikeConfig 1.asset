@@ -18,7 +18,7 @@ MonoBehaviour:
   procChance: 1
   effectSetups:
   - effectTypeId: 1
-    effectPrefab: {fileID: 3266668206368625119, guid: d920c15c4c8606942a9976e05dfade1e, type: 3}
+    visuals: {fileID: 353318817645799425, guid: d920c15c4c8606942a9976e05dfade1e, type: 3}
     value: 5
   buffSetups: []
   statSetups: []
