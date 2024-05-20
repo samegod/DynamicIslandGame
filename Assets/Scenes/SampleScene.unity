@@ -6395,6 +6395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
 --- !u!54 &802196284
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7192,7 +7193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponInput: {fileID: 1390877231}
   attackDelay: 0
-  damage: 15
+  damage: 0
   inputPlane: {fileID: 345164265}
   projectilePrefab: {fileID: 3672278883491383471, guid: 7482ff2422b24cf4eb5ad242dbd80660, type: 3}
   aimPrefab: {fileID: 2613862306940279526, guid: c523b3436bb7d9e4a8f0220fcec2f131, type: 3}

@@ -41,8 +41,7 @@ namespace CharacterInventory.ArtifactsProc
                 {
                     foreach (var effectSetup in artifact.Effects)
                     {
-                        var effect = _effectFactory.CreateEffect(effectSetup);
-                        effectable.AddEffect(effect);
+                        _effectFactory.CreateEffect(effectSetup, effectable);
                     }
                 }
             }

@@ -16,10 +16,11 @@ public class test : MonoBehaviour
     
     public void SetPoison()
     {
-        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.Poison));
+        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.LightningStrike));
     }
 
     public void SetBuff()
     {
+        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.Poison));
     }
 }

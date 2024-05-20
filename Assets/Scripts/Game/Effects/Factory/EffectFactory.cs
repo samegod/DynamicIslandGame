@@ -1,10 +1,17 @@
-﻿namespace Effects.Factory
+﻿using Entities.Interfaces;
+using UnityEngine;
+
+namespace Effects.Factory
 {
     public class EffectFactory : IEffectFactory
     {
-        public Effect CreateEffect(EffectSetup setup)
+        public Effect CreateEffect(EffectSetup setup, IEffectable target)
         {
-            return null;
+            Effect newEffect = Object.Instantiate(setup.EffectPrefab);
+            newEffect.Init(setup.TypeId, target, setup.Value);
+            newEffect.Activate();
+
+            return newEffect;
         }
     }
 }

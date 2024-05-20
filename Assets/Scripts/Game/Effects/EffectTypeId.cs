@@ -3,6 +3,6 @@
     public enum EffectTypeId
     {
         Unknown = 0,
-        Poison = 1,
+        LightningStrike = 1,
     }
 }

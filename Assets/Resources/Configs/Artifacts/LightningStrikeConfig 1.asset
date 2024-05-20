@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2d9ff143924d9bb9ba520ac610a536, type: 3}
+  m_Name: LightningStrikeConfig 1
+  m_EditorClassIdentifier: 
+  artifactTypeId: 2
+  behaviour: 1
+  procTriggers: 01000000
+  procChance: 1
+  effectSetups:
+  - effectTypeId: 1
+    effectPrefab: {fileID: 3266668206368625119, guid: d920c15c4c8606942a9976e05dfade1e, type: 3}
+    value: 5
+  buffSetups: []
+  statSetups: []

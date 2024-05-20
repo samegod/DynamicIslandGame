@@ -69,6 +69,11 @@ namespace Enemies.Core
             Debug.Log("buff added");
             buffsHolder.AddBuff(buff);
         }
+        
+        public Vector3 GetPosition()
+        {
+            return transform.position;
+        }
 
         protected override void Die()
         {
@@ -111,5 +116,6 @@ namespace Enemies.Core
         {
             throw new System.NotImplementedException();
         }
+
     }
 }
