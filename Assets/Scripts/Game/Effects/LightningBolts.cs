@@ -83,9 +83,7 @@ namespace Effects
 
             sortedTargets.Remove(Target);
 
-            Debug.Log("2   " );
             Target = sortedTargets.GetRandomElement();
-            Debug.Log(Target);
             _currentVisuals.Activate(Target.GetTransform(), () =>
             {
                 DealDamage();
