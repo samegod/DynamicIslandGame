@@ -9,21 +9,21 @@ namespace Effects
         protected EffectTypeId TypeId;
         protected IEffectable Target;
         protected float Value;
-        protected EffectVisuals Visuals;
+        protected EffectVisuals VisualsPrefab;
 
-        public void Init(EffectTypeId typeId, IEffectable target, float value, EffectVisuals visuals)
+        public Effect(EffectTypeId typeId, IEffectable target, float value, EffectVisuals visualsPrefab)
         {
             TypeId = typeId;
             Target = target;
             Value = value;
-            Visuals = visuals;
+            VisualsPrefab = visualsPrefab;
         }
         
         public abstract void Activate();
 
         protected EffectVisuals CreateVisuals()
         {
-            return EffectVisualsPool.Instance.Pop(Visuals);
+            return EffectVisualsPool.Instance.Pop(VisualsPrefab);
         }
     }
 }

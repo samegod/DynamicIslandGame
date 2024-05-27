@@ -7,5 +7,6 @@ namespace Entities.Interfaces
     {
         void AddEffect(IEffect effect);
         Vector3 GetPosition();
+        Transform GetTransform();
     }
 }

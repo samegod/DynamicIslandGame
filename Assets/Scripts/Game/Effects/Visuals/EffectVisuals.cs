@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Additions.Pool;
 using Effects.Visuals.Pool;
 using UnityEngine;
@@ -7,10 +8,19 @@ namespace Effects.Visuals
 {
     public abstract class EffectVisuals : MonoBehaviourPoolObject, IEffectVisuals
     {
-        [SerializeField] private float duration;
+        [SerializeField] protected float duration;
+
+        protected Action Callback;
         
-        public virtual void Activate()
+        public virtual void Activate(Action callback = null)
         {
+            Callback = callback;
+            StartCoroutine(DelayedDisable());
+        }
+
+        public virtual void Activate(Transform target, Action callback = null)
+        {
+            Callback = callback;
             StartCoroutine(DelayedDisable());
         }
         
@@ -19,8 +29,9 @@ namespace Effects.Visuals
             transform.position = newPosition;
         }
 
-        protected virtual void Disable()
+        public virtual void Disable()
         {
+            Callback?.Invoke();
             Push();
         }
 

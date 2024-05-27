@@ -5,6 +5,10 @@ namespace Effects
 {
     public class LightningStrike : Effect
     {
+        public LightningStrike(EffectTypeId typeId, IEffectable target, float value, EffectVisuals visualsPrefab) : base(typeId, target, value, visualsPrefab)
+        {
+        }
+        
         public override void Activate()
         {
             EffectVisuals visuals = CreateVisuals();
@@ -16,5 +20,6 @@ namespace Effects
                 hittable.TakeDamage(Value);
             }
         }
+
     }
 }

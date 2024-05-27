@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Effects.Visuals
 {
@@ -6,10 +7,10 @@ namespace Effects.Visuals
     {
         [SerializeField] private ParticleSystem particles;
 
-        public override void Activate()
+        public override void Activate(Action callback = null)
         {
             particles.Play();
-            base.Activate();
+            base.Activate(callback);
         }
     }
 }

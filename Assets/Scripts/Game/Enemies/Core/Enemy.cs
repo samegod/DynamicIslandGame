@@ -75,6 +75,11 @@ namespace Enemies.Core
             return transform.position;
         }
 
+        public Transform GetTransform()
+        {
+            return transform;
+        }
+
         protected override void Die()
         {
             stateMachine.StartNewState(new DeathState(deathTime));

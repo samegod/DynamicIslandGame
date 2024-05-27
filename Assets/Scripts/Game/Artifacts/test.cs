@@ -16,7 +16,7 @@ public class test : MonoBehaviour
     
     public void SetPoison()
     {
-        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.LightningStrike));
+        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.LightningBolts));
     }
 
     public void SetBuff()

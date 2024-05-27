@@ -12,15 +12,25 @@ namespace Effects.Factory
                 case EffectTypeId.LightningStrike:
                     return CreateLightningStrike(setup, target);
                     break;
+                case EffectTypeId.LightningBolts:
+                    return CreateBolts(setup, target);
+                    break;
             }
 
             throw new Exception("Could not create effect " + setup.TypeId);
         }
 
+        private Effect CreateBolts(EffectSetup setup, IEffectable target)
+        {
+            Effect newEffect = new LightningBolts(setup.TypeId, target, setup.Value, setup.Visuals, 0, 10);
+            newEffect.Activate();
+
+            return newEffect;
+        }
+
         private Effect CreateLightningStrike(EffectSetup setup, IEffectable target)
         {
-            Effect newEffect = new LightningStrike();
-            newEffect.Init(setup.TypeId, target, setup.Value, setup.Visuals);
+            Effect newEffect = new LightningStrike(setup.TypeId, target, setup.Value, setup.Visuals);
             newEffect.Activate();
 
             return newEffect;
