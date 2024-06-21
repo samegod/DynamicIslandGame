@@ -1,11 +1,8 @@
 using System;
 using Artifacts.Core;
-using Buffs.Factory;
 using CharacterInventory;
 using CharacterInventory.ArtifactsProc;
-using CharacterStats;
 using DynamicBlob.PlayerShield;
-using Effects.Factory;
 using Entities.Interfaces;
 using UnityEngine;
 using Weapons.Core;
@@ -23,7 +20,6 @@ namespace DynamicBlob.Core
         [SerializeField] private Shield shield;
 
         private IInventory _inventory;
-        private IStatsHolder _statsHolder;
         private IArtifactsProcService _procService;
 
         public Weapon Weapon => weapon;
@@ -32,7 +28,6 @@ namespace DynamicBlob.Core
         private void Awake()
         {
             _inventory = new Inventory(this, _procService);
-            _statsHolder = new StatsHolder();
         }
 
         [Inject]
@@ -69,11 +64,6 @@ namespace DynamicBlob.Core
         public void AddArtifact(Artifact newArtifact)
         {
             _inventory.AddArtifact(newArtifact);
-        }
-
-        public IStatsHolder GetStatHolder()
-        {
-            return _statsHolder;
         }
 
         private void DamageDealt(IHittable target)

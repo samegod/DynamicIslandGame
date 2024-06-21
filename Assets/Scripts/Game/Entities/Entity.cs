@@ -15,8 +15,6 @@ namespace Entities
         [SerializeField, HideInInspector] protected EntityMotion entityMotion;
         [SerializeField, HideInInspector] protected EntityHealth health;
 
-        private IStatsHolder _statsHolder;
-
         public EntityMotion EntityMotion => entityMotion;
         public EntityHealth Health => health;
 
@@ -28,7 +26,6 @@ namespace Entities
 
         protected virtual void Awake()
         {
-            _statsHolder = new StatsHolder();
         }
 
         protected virtual void OnEnable()
@@ -43,7 +40,6 @@ namespace Entities
 
         public void SetBaseStats(Dictionary<Stats, float> newStats)
         {
-            _statsHolder.SetDefaultStats(newStats);
         }
 
         public virtual void MoveTo(Vector3 position)

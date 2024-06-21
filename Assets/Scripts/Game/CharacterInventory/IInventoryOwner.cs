@@ -1,6 +1,5 @@
 ﻿using System;
 using Artifacts.Core;
-using CharacterStats;
 using Entities.Interfaces;
 
 namespace CharacterInventory
@@ -12,6 +11,5 @@ namespace CharacterInventory
         event Action<IHittable> OnImpact;
         
         void AddArtifact(Artifact newArtifact);
-        IStatsHolder GetStatHolder();
     }
 }

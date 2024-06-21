@@ -1,5 +1,6 @@
 using Buffs.Core;
 using Buffs.Interfaces;
+using CharacterStats;
 using Effects;
 using Enemies.Combat;
 using Enemies.StateMachine;
@@ -13,7 +14,7 @@ namespace Enemies.Core
 {
     [RequireComponent(typeof(EnemyAnimator), typeof(EnemyStateMachine), typeof(EnemyCombatController))]
     [RequireComponent(typeof(BuffsHolder))]
-    public abstract class Enemy : Entity, IBuffable, IEffectable
+    public abstract class Enemy : Entity, IBuffable, IEffectable, IStatsProvider
     {
         [SerializeField] protected float deathTime = 1f;
         [SerializeField] protected float attackDistance = 5f;
@@ -69,7 +70,12 @@ namespace Enemies.Core
             Debug.Log("buff added");
             buffsHolder.AddBuff(buff);
         }
-        
+
+        public void AddEffect(IEffect effect)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Vector3 GetPosition()
         {
             return transform.position;
@@ -117,10 +123,9 @@ namespace Enemies.Core
             EntityMotion.SetSpeed(stats.Speed);
         }
 
-        public void AddEffect(IEffect effect)
+        public float GetStatValue(Stats stats)
         {
             throw new System.NotImplementedException();
         }
-
     }
 }

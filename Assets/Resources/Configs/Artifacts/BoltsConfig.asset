@@ -15,7 +15,7 @@ MonoBehaviour:
   artifactTypeId: 3
   behaviour: 1
   procTriggers: 01000000
-  procChance: 1
+  procChance: 0.2
   effectSetups:
   - effectTypeId: 2
     visuals: {fileID: 1566772285707467611, guid: 18c9889661471d04fad5b1f17ccc7ef2, type: 3}

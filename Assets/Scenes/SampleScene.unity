@@ -250,7 +250,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1012895349349407474, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7129706258064275939, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: m_RootOrder
@@ -5613,7 +5613,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1012895349349407474, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7129706258064275939, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: m_RootOrder
@@ -12357,7 +12357,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1012895349349407474, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7129706258064275939, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: m_RootOrder
@@ -12648,7 +12648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1012895349349407474, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7129706258064275939, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
       propertyPath: m_RootOrder
