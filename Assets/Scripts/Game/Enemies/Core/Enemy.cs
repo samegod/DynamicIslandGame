@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using Buffs.Core;
 using Buffs.Interfaces;
 using CharacterStats;
-using Effects;
 using Enemies.Combat;
 using Enemies.StateMachine;
 using Enemies.StateMachine.States;
@@ -25,6 +25,7 @@ namespace Enemies.Core
         [SerializeField, HideInInspector] protected EnemyStateMachine stateMachine;
         [SerializeField, HideInInspector] protected EnemyCombatController combatController;
 
+        private IStatsHolder _statsHolder;
         private bool _dead;
 
         public EnemyAnimator Animator => animator;
@@ -40,6 +41,9 @@ namespace Enemies.Core
         protected override void Awake()
         {
             base.Awake();
+
+            _statsHolder = new StatsHolder();
+            
             stateMachine.UpdateEnemy(this);
             
             combatController.Init(this, animator);
@@ -69,11 +73,6 @@ namespace Enemies.Core
         {
             Debug.Log("buff added");
             buffsHolder.AddBuff(buff);
-        }
-
-        public void AddEffect(IEffect effect)
-        {
-            throw new System.NotImplementedException();
         }
 
         public Vector3 GetPosition()
@@ -118,14 +117,42 @@ namespace Enemies.Core
             if (!stats)
                 return;
 
+            _statsHolder.SetDefaultStats(new Dictionary<Stats, float>()
+            {
+                {Stats.Health, stats.Health},
+                {Stats.Damage, stats.Damage},
+                {Stats.Speed, stats.Speed}
+            });
+            
             combatController.SetDamage(stats.Damage);
             Health.SetMaxHealth(stats.Health);
             EntityMotion.SetSpeed(stats.Speed);
-        }
+        } 
 
         public float GetStatValue(Stats stats)
         {
-            throw new System.NotImplementedException();
+            return _statsHolder.GetStat(stats);
+        }
+
+        public void SetStatMultiplier(Stats stats, float value)
+        {
+            _statsHolder.AddStatMultiplier(stats, value);
+            
+            UpdateStatsRelatedValues();
+        }
+
+        public void SetStatAddition(Stats stats, float value)
+        {
+            _statsHolder.AddStatAddition(stats, value);
+            
+            UpdateStatsRelatedValues();
+        }
+
+        private void UpdateStatsRelatedValues()
+        {
+            entityMotion.SetSpeed(_statsHolder.GetStat(Stats.Speed));
+            combatController.SetDamage(_statsHolder.GetStat(Stats.Damage));
+            Health.SetMaxHealth(_statsHolder.GetStat(Stats.Health));
         }
     }
 }

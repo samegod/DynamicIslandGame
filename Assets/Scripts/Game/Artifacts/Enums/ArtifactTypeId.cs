@@ -1,4 +1,4 @@
-﻿namespace Artifacts
+﻿namespace Artifacts.Enums
 {
     public enum ArtifactTypeId
     {
@@ -6,5 +6,6 @@
         Poison = 1,
         LightningStrike = 2,
         LightningBolts = 3,
+        Frost = 4,
     }
 }

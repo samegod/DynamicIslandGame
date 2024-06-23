@@ -1,4 +1,5 @@
 using Artifacts.Core;
+using Artifacts.Enums;
 
 namespace Artifacts.Factory
 {

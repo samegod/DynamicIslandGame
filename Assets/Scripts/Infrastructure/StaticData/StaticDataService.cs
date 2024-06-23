@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Artifacts;
+using Artifacts.Enums;
 using Code.Gameplay.StaticData;
 using UnityEngine;
 

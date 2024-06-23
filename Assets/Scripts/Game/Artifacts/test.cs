@@ -1,4 +1,5 @@
 using Artifacts;
+using Artifacts.Enums;
 using Artifacts.Factory;
 using UnityEngine;
 using Zenject;

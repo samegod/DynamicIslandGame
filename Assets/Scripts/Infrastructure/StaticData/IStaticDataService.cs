@@ -1,4 +1,5 @@
 ﻿using Artifacts;
+using Artifacts.Enums;
 
 namespace Code.Gameplay.StaticData
 {

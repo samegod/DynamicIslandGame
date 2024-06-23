@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Artifacts;
+using Artifacts.Enums;
 
 namespace ArtifactsOperator
 {

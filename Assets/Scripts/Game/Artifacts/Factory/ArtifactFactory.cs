@@ -1,4 +1,5 @@
 ﻿using Artifacts.Core;
+using Artifacts.Enums;
 using Code.Gameplay.StaticData;
 
 namespace Artifacts.Factory
