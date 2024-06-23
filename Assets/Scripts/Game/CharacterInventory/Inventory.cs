@@ -6,6 +6,7 @@ using Buffs.Factory;
 using CharacterInventory.ArtifactsProc;
 using Effects.Factory;
 using Entities.Interfaces;
+using UnityEngine;
 
 namespace CharacterInventory
 {

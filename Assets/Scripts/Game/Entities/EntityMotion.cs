@@ -22,6 +22,7 @@ namespace Entities
         public void SetSpeed(float newSpeed)
         {
             speed = newSpeed;
+            navMeshAgent.speed = speed;
         }
 
         public void MoveTo(Vector3 targetPosition)

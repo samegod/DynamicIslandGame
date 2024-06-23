@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace CharacterStats
 {
@@ -21,6 +22,8 @@ namespace CharacterStats
             foreach (var newStat in newStats)
             {
                 _baseStats[newStat.Key] = newStat.Value;
+                _statAddition[newStat.Key] = 0;
+                _statMultiplier[newStat.Key] = 1;
             }
         }
 
@@ -41,6 +44,7 @@ namespace CharacterStats
                 result += _statAddition[stat];
             }
 
+            result = Mathf.Clamp(result, 0, 99999);
             return result;
         }
     }

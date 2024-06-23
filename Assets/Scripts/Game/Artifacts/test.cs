@@ -1,4 +1,3 @@
-using Artifacts;
 using Artifacts.Enums;
 using Artifacts.Factory;
 using UnityEngine;
@@ -17,11 +16,11 @@ public class test : MonoBehaviour
     
     public void SetPoison()
     {
-        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.LightningBolts));
+        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.Poison));
     }
 
     public void SetBuff()
     {
-        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.Poison));
+        player.AddArtifact(_artifactFactory.CreateArtifact(ArtifactTypeId.Frost));
     }
 }

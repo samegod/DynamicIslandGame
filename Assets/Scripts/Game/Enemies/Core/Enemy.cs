@@ -71,7 +71,6 @@ namespace Enemies.Core
         
         public void AddBuff(IBuff buff)
         {
-            Debug.Log("buff added");
             buffsHolder.AddBuff(buff);
         }
 
@@ -126,7 +125,7 @@ namespace Enemies.Core
             
             combatController.SetDamage(stats.Damage);
             Health.SetMaxHealth(stats.Health);
-            EntityMotion.SetSpeed(stats.Speed);
+            EntityMotion.SetSpeed(_statsHolder.GetStat(Stats.Speed));
         } 
 
         public float GetStatValue(Stats stats)
@@ -150,7 +149,7 @@ namespace Enemies.Core
 
         private void UpdateStatsRelatedValues()
         {
-            entityMotion.SetSpeed(_statsHolder.GetStat(Stats.Speed));
+            EntityMotion.SetSpeed(_statsHolder.GetStat(Stats.Speed));
             combatController.SetDamage(_statsHolder.GetStat(Stats.Damage));
             Health.SetMaxHealth(_statsHolder.GetStat(Stats.Health));
         }

@@ -24,8 +24,7 @@ namespace Buffs.Core
             Duration = duration;
             Period = period;
         }
-
-
+        
         public abstract void Start();
         public virtual void Update()
         {

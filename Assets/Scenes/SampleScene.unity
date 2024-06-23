@@ -13029,7 +13029,7 @@ MonoBehaviour:
   player: {fileID: 1639613720}
   enemy: {fileID: 7129706258064275938, guid: 7d08ea887d15332448e4e9621f5491f5, type: 3}
   spawnPosition: {fileID: 2097240847}
-  spawnRate: 0.5
+  spawnRate: 1.5
 --- !u!1 &2097240846
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ namespace Buffs.Factory
                 return new Poison(setup.TypeId, setup.Value, setup.Duration, setup.Period);
             }
 
+            if (setup.TypeId == BuffTypeId.Freeze)
+            {
+                return new Freeze(setup.TypeId, setup.Value, setup.Duration, setup.Period);
+            }
+
             throw new Exception("Buff type Id is Unknown");
         }
     }
