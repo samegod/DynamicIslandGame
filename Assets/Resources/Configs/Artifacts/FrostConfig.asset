@@ -19,7 +19,7 @@ MonoBehaviour:
   effectSetups: []
   buffSetups:
   - typeId: 2
-    value: -1
+    value: -0.75
     duration: 5
     period: 0
   statSetups: []
